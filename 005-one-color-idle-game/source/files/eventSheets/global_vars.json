@@ -1,0 +1,26 @@
+{
+	"name": "global_vars",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "Points",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 372352911786746
+		},
+		{
+			"eventType": "variable",
+			"name": "Value_Click",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 293440712921061
+		}
+	],
+	"sid": 543407814925409
+}

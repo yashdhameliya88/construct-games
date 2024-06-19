@@ -1,0 +1,472 @@
+{
+	"name": "Main",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Main",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 963299888622029
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "InitializeLevel",
+							"sid": 108969434616104
+						},
+						{
+							"callFunction": "GenerateLevel",
+							"sid": 176348476110051,
+							"parameters": [
+								"\"Keyboard_\" & Keyboard_List.SelectedText & choose(\"_LETTERS\",\"_SIMPLE_1\",\"_SIMPLE_2\",\"_SIMPLE_3\")"
+							]
+						}
+					],
+					"sid": 674318153167561
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 931189478938217
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Score_Show",
+							"sid": 482943917934140
+						}
+					],
+					"sid": 961527462937251
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-selection-changed",
+							"objectClass": "Keyboard_List",
+							"sid": 303187945206268
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Keyboard_ChangeTemplateFromSelection",
+							"sid": 995834982352605
+						}
+					],
+					"sid": 825136754393631
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Main :: Countdown",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 319179609353747,
+									"parameters": {
+										"variable": "isCounting"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Counter_SetText",
+									"sid": 615861359147470
+								},
+								{
+									"callFunction": "Counter_Layer_Show",
+									"sid": 200639951948575
+								}
+							],
+							"sid": 410072124695558,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 205065943194964,
+											"parameters": {
+												"interval-seconds": "1.0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Counter_Countdown",
+											"sid": 207230947128596
+										}
+									],
+									"sid": 688182755828936
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 436421785505247
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Counter_Layer_Hide",
+									"sid": 998104744688311
+								}
+							],
+							"sid": 185376907966241
+						}
+					],
+					"sid": 313267815118292
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Main :: Playing",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 462133980401738,
+									"parameters": {
+										"variable": "isRunning"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 259215469349456,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Char",
+											"sid": 775734593030651,
+											"parameters": {
+												"object": "Char"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Char_Move",
+											"sid": 409269190040752,
+											"parameters": [
+												"Char.UID",
+												"choose(\"U\",\"R\",\"D\",\"L\")",
+												"16"
+											]
+										}
+									],
+									"sid": 276374775772148
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "Char",
+											"sid": 168450171403913,
+											"parameters": {
+												"object": "Limit"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Char_TweenSizeToDestroy",
+											"sid": 939501760558067,
+											"parameters": [
+												"Char.UID"
+											]
+										},
+										{
+											"callFunction": "LImit_FlashAndReduce",
+											"sid": 482398949213867,
+											"parameters": [
+												"Limit.UID"
+											]
+										}
+									],
+									"sid": 209976239208968
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Char",
+											"sid": 153446095532905,
+											"parameters": {
+												"instance-variable": "Hitted"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Char_ShakeSmokeAndDestroy",
+											"sid": 867629404132129,
+											"parameters": [
+												"Char.UID"
+											]
+										}
+									],
+									"sid": 831485843694706
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 177264422081409,
+											"parameters": {
+												"interval-seconds": "Move_Seconds"
+											}
+										},
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 247594085333371,
+											"parameters": {
+												"object": "Char"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Char_Move",
+											"sid": 722739038005366,
+											"parameters": [
+												"Char.UID",
+												"\"DOWN\"",
+												"64"
+											]
+										}
+									],
+									"sid": 894347057356719
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 188899187634992,
+											"parameters": {
+												"interval-seconds": "choose(1,1.2,1.5)"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "GenerateRandomChar",
+											"sid": 235760326513199
+										}
+									],
+									"sid": 918134287171528
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-any-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 809409500866328
+										}
+									],
+									"actions": [],
+									"sid": 965890998403849,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 891850660313406,
+													"parameters": {
+														"object": "Key"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Key",
+													"sid": 625530184818603,
+													"parameters": {
+														"instance-variable": "Key",
+														"comparison": 0,
+														"value": "uppercase(Keyboard.TypedKey)"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Char",
+													"sid": 502760538161358,
+													"parameters": {
+														"instance-variable": "Key",
+														"comparison": 0,
+														"value": "uppercase(Keyboard.TypedKey)"
+													}
+												},
+												{
+													"id": "for-each-ordered",
+													"objectClass": "System",
+													"sid": 194290083645538,
+													"parameters": {
+														"object": "Char",
+														"expression": "Char.Y",
+														"order": "descending"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "stop-loop",
+													"objectClass": "System",
+													"sid": 641317977169201
+												},
+												{
+													"callFunction": "Char_LaserHitCharThenDestroyAndAddScore",
+													"sid": 838685041964979,
+													"parameters": [
+														"Key.UID",
+														"Char.UID",
+														"1"
+													]
+												},
+												{
+													"callFunction": "GenerateRandomChar",
+													"sid": 544364236167923
+												}
+											],
+											"sid": 415439542692426
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-any-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 743727954246079
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Keyboard_ColorKey",
+											"sid": 107569325909891,
+											"parameters": [
+												"Keyboard.TypedKey"
+											]
+										}
+									],
+									"sid": 532833031628224
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-any-key-released",
+											"objectClass": "Keyboard",
+											"sid": 920244064844052
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Keyboard_DecolorKey",
+											"sid": 521641948165123,
+											"parameters": [
+												"Keyboard.TypedKey"
+											]
+										}
+									],
+									"sid": 445197511368561
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-height",
+											"objectClass": "Limit",
+											"sid": 529215696767932,
+											"parameters": {
+												"comparison": 3,
+												"height": "0"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 663773545364212
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 407089732595313,
+											"parameters": {
+												"variable": "isRunning",
+												"value": "false"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 572984376730008,
+											"parameters": {
+												"seconds": "1"
+											}
+										},
+										{
+											"id": "wait-for-previous-actions",
+											"objectClass": "System",
+											"sid": 649463963184053
+										},
+										{
+											"id": "restart-layout",
+											"objectClass": "System",
+											"sid": 341389225299468
+										}
+									],
+									"sid": 244769150205145
+								}
+							]
+						}
+					],
+					"sid": 595601786882184
+				}
+			],
+			"sid": 288270725848264
+		}
+	],
+	"sid": 619606570409396
+}

@@ -1,0 +1,20 @@
+{
+	"name": "Color_Primary_Sprite",
+	"plugin-id": "Sprite",
+	"sid": 561096494206771,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"Button_Generator",
+		"Magic",
+		"Magic_SPR_Box",
+		"Button_SPR_Timer",
+		"Select_Page_SPR",
+		"Button_SPR_mystery",
+		"Button_SPR_PlaceHolder",
+		"Magic_SPR_Points",
+		"Settings_Button",
+		"Settings_Button_ConfirmImport"
+	]
+}

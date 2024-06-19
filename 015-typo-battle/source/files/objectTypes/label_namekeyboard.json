@@ -1,0 +1,15 @@
+{
+	"name": "Label_NameKeyboard",
+	"plugin-id": "Text",
+	"sid": 169112864424636,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Anchor",
+			"sid": 991396021333231
+		}
+	],
+	"effectTypes": []
+}

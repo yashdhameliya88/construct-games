@@ -1,0 +1,20 @@
+{
+	"name": "Colors_Background_Text",
+	"plugin-id": "Text",
+	"sid": 112915660304959,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"Button_TXT_Cost",
+		"Button_TXT_Effect",
+		"Button_TXT_Name",
+		"Button_TXT_Quantity",
+		"Magic_TXT_Labels",
+		"Magic_TXT_PPS",
+		"Select_Page_TXT_Labels",
+		"Button_TXT_NextEffect",
+		"Settings_TXT_Background_Label",
+		"Settings_TXT_ConfirmImport"
+	]
+}

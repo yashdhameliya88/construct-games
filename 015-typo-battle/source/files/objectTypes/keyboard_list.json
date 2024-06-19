@@ -1,0 +1,14 @@
+{
+	"name": "Keyboard_List",
+	"plugin-id": "List",
+	"sid": 362014755659175,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Anchor",
+			"sid": 625161281074112
+		}
+	]
+}

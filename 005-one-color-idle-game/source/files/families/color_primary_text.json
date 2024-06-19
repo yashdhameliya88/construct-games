@@ -1,0 +1,19 @@
+{
+	"name": "Color_Primary_Text",
+	"plugin-id": "Text",
+	"sid": 763982007677498,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"Magic_TXT_Hints",
+		"Settings_TXT_Label",
+		"Button_TXT_Require",
+		"Magic_TXT_Points",
+		"Button_TXT_NextEffect_background",
+		"Settings_TXT_Label_LastSave",
+		"Settings_TXT_Label_CopyThisText",
+		"Settings_TXT_Label_PasteTheSaveCode",
+		"Logger_txt"
+	]
+}

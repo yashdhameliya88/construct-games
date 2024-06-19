@@ -1,0 +1,567 @@
+{
+	"projectFormatVersion": 1,
+	"savedWithRelease": 21600,
+	"name": "One Color Idle Game",
+	"runtime": "c3",
+	"useWorker": "auto",
+	"bundleAddons": false,
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "Json",
+			"name": "JSON",
+			"author": "Scirra",
+			"version": "r216",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "AJAX",
+			"name": "AJAX",
+			"author": "Scirra",
+			"version": "r216",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Audio",
+			"name": "Audio",
+			"author": "Scirra",
+			"version": "r216",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Browser",
+			"name": "Browser",
+			"author": "Scirra",
+			"version": "r216",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Touch",
+			"name": "Touch",
+			"author": "Scirra",
+			"version": "r216",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "LocalStorage",
+			"name": "Local storage",
+			"author": "Scirra",
+			"version": "r216",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Date",
+			"name": "Date",
+			"author": "Scirra",
+			"version": "r216",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"version": "r216",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Particles",
+			"name": "Particles",
+			"author": "Scirra",
+			"version": "r216",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"version": "r216",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TextBox",
+			"name": "Text input",
+			"author": "Scirra",
+			"version": "r216",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "List",
+			"name": "List",
+			"author": "Scirra",
+			"version": "r216",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TiledBg",
+			"name": "Tiled Background",
+			"author": "Scirra",
+			"version": "r216",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Timer",
+			"name": "Timer",
+			"author": "Scirra",
+			"version": "r216",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Tween",
+			"name": "Tween",
+			"author": "Scirra",
+			"version": "r216",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Fade",
+			"name": "Fade",
+			"author": "Scirra",
+			"version": "r216",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Sin",
+			"name": "Sine",
+			"author": "Scirra",
+			"version": "r216",
+			"bundled": false
+		}
+	],
+	"uniqueId": "fg2q48wybme",
+	"objectTypes": {
+		"items": [
+			"Title",
+			"TiledBackground",
+			"Loading",
+			"tiled_margin",
+			"Logger_txt"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"colors",
+					"idle_rules",
+					"idle_stats"
+				],
+				"subfolders": [],
+				"name": "JSON"
+			},
+			{
+				"items": [
+					"AJAX",
+					"Audio",
+					"Browser",
+					"Touch",
+					"LocalStorage",
+					"Date"
+				],
+				"subfolders": [],
+				"name": "System"
+			},
+			{
+				"items": [],
+				"subfolders": [
+					{
+						"items": [
+							"Button_SPR_Icons",
+							"Button_Generator",
+							"Button_SPR_Price",
+							"Button_SPR_Effect",
+							"Button_SPR_Timer",
+							"Button_Particles",
+							"Button_SPR_Obfuscate",
+							"Button_SPR_PlaceHolder",
+							"Button_SPR_mystery"
+						],
+						"subfolders": [],
+						"name": "Sprites"
+					},
+					{
+						"items": [
+							"Button_TXT_Cost",
+							"Button_TXT_Effect",
+							"Button_TXT_Name",
+							"Button_TXT_Quantity",
+							"Button_TXT_Require",
+							"Button_TXT_NextEffect",
+							"Button_TXT_NextEffect_background"
+						],
+						"subfolders": [],
+						"name": "Texts"
+					}
+				],
+				"name": "Button"
+			},
+			{
+				"items": [
+					"Magic_Particles"
+				],
+				"subfolders": [
+					{
+						"items": [
+							"Magic",
+							"Magic_SPR_Box",
+							"Magic_SPR_Points",
+							"Magic_SPR_PPS"
+						],
+						"subfolders": [],
+						"name": "Sprites"
+					},
+					{
+						"items": [
+							"Magic_TXT_Labels",
+							"Magic_TXT_Points",
+							"Magic_TXT_PPS",
+							"Magic_TXT_Hints"
+						],
+						"subfolders": [],
+						"name": "Texts"
+					}
+				],
+				"name": "Magic"
+			},
+			{
+				"items": [],
+				"subfolders": [
+					{
+						"items": [
+							"Settings_Button",
+							"Settings_Button_ConfirmImport"
+						],
+						"subfolders": [],
+						"name": "Sprites"
+					},
+					{
+						"items": [
+							"Settings_TXT_Background_Label",
+							"Settings_TXT_ConfirmImport",
+							"Settings_TXT_Label",
+							"Settings_TXT_Label_CopyThisText",
+							"Settings_TXT_Label_LastSave",
+							"Settings_TXT_Label_PasteTheSaveCode"
+						],
+						"subfolders": [],
+						"name": "Texts"
+					},
+					{
+						"items": [
+							"Input_ExportSave",
+							"Input_ImportSave"
+						],
+						"subfolders": [],
+						"name": "Input"
+					},
+					{
+						"items": [
+							"ChooseMusicOnOff",
+							"ChooseSoundOnOff",
+							"ChooseTheme"
+						],
+						"subfolders": [],
+						"name": "List"
+					}
+				],
+				"name": "Settings"
+			},
+			{
+				"items": [
+					"Select_Page_SPR",
+					"Select_Page_TXT_Labels"
+				],
+				"subfolders": [],
+				"name": "Pages"
+			}
+		]
+	},
+	"autosaveData": null,
+	"containers": [
+		{
+			"members": [
+				"Button_Generator",
+				"Button_SPR_Effect",
+				"Button_SPR_Icons",
+				"Button_SPR_mystery",
+				"Button_SPR_Obfuscate",
+				"Button_SPR_PlaceHolder",
+				"Button_SPR_Price",
+				"Button_SPR_Timer",
+				"Button_TXT_Cost",
+				"Button_TXT_Effect",
+				"Button_TXT_Name",
+				"Button_TXT_NextEffect",
+				"Button_TXT_NextEffect_background",
+				"Button_TXT_Quantity",
+				"Button_TXT_Require"
+			],
+			"selectMode": "normal"
+		}
+	],
+	"families": {
+		"items": [
+			"Color_Primary_Sprite",
+			"Color_Primary_Text",
+			"Colors_Background_Text",
+			"Colors_Background_Sprite"
+		],
+		"subfolders": []
+	},
+	"layouts": {
+		"items": [
+			"Loader",
+			"Bank",
+			"IdleGame"
+		],
+		"subfolders": []
+	},
+	"eventSheets": {
+		"items": [
+			"c3_colors_helper",
+			"c3_json_helper",
+			"Loader",
+			"idle_game",
+			"global_vars"
+		],
+		"subfolders": []
+	},
+	"rootFileFolders": {
+		"script": {
+			"items": [
+				{
+					"name": "RunOnStartup.js",
+					"type": "application/javascript",
+					"sid": 598721724048426
+				},
+				{
+					"name": "c3_json_helper.js",
+					"type": "application/javascript",
+					"sid": 751545712582441
+				},
+				{
+					"name": "c3_colors_helper.js",
+					"type": "application/javascript",
+					"sid": 713429149075335
+				},
+				{
+					"name": "c3_idle_count_helper.js",
+					"type": "application/javascript",
+					"sid": 586213505729279
+				},
+				{
+					"name": "c3_idle_interface_helper.js",
+					"type": "application/javascript",
+					"sid": 113916044905492
+				},
+				{
+					"name": "c3_idle_const.js",
+					"type": "application/javascript",
+					"sid": 528335771191061
+				},
+				{
+					"name": "c3_idle_number_formatter.js",
+					"type": "application/javascript",
+					"sid": 931249305005368
+				}
+			],
+			"subfolders": []
+		},
+		"sound": {
+			"items": [
+				{
+					"name": "click.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 213977431333817
+				}
+			],
+			"subfolders": []
+		},
+		"music": {
+			"items": [
+				{
+					"name": "background.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 790629438417048
+				}
+			],
+			"subfolders": []
+		},
+		"video": {
+			"items": [],
+			"subfolders": []
+		},
+		"font": {
+			"items": [
+				{
+					"name": "roboto-regular.ttf",
+					"type": "application/font-sfnt",
+					"sid": 131475865738469
+				},
+				{
+					"name": "monotalic.woff2",
+					"type": "font/woff2",
+					"sid": 117764379282112
+				}
+			],
+			"subfolders": []
+		},
+		"icon": {
+			"items": [
+				{
+					"name": "icon-16.png",
+					"type": "image/png",
+					"sid": 363465710959880,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-32.png",
+					"type": "image/png",
+					"sid": 439136454465359,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-64.png",
+					"type": "image/png",
+					"sid": 836128851120276,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-128.png",
+					"type": "image/png",
+					"sid": 920490551508833,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-256.png",
+					"type": "image/png",
+					"sid": 793390529276499,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-512.png",
+					"type": "image/png",
+					"sid": 548976901434152,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 742151047692955,
+					"icon-info": {
+						"purpose": "loading-logo"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"general": {
+			"items": [
+				{
+					"name": "colors.json",
+					"type": "application/json",
+					"sid": 756462737529564
+				},
+				{
+					"name": "powers.json",
+					"type": "application/json",
+					"sid": 185890500315635
+				},
+				{
+					"name": "idle_rules.json",
+					"type": "application/json",
+					"sid": 478334342971013
+				},
+				{
+					"name": "idle_stats.json",
+					"type": "application/json",
+					"sid": 245139438978825
+				}
+			],
+			"subfolders": []
+		}
+	},
+	"timelines": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": []
+			}
+		]
+	},
+	"properties": {
+		"description": "",
+		"version": "demo-20.09.18",
+		"author": "Samuele (Strani Anelli) De Tomasi",
+		"authorEmail": "stranianelli@gmail.com",
+		"authorWebsite": "https://blog.stranianelli.com/",
+		"appId": "",
+		"pixelRounding": true,
+		"useLoaderLayout": false,
+		"fullscreenMode": "scale-outer",
+		"fullscreenQuality": "high",
+		"viewportFit": "auto",
+		"backgroundColor": [
+			0.9254901960784314,
+			0.9176470588235294,
+			0.9098039215686274,
+			0
+		],
+		"splashColor": [
+			0.9254901960784314,
+			0.9176470588235294,
+			0.9098039215686274,
+			0
+		],
+		"useThemeColor": false,
+		"themeColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useHighDpi": true,
+		"orientations": "landscape",
+		"enableWebGL": true,
+		"gpuPreference": "high-performance",
+		"framerateMode": "vsync",
+		"compositingMode": "standard",
+		"sampling": "trilinear",
+		"downscaling": "medium",
+		"maxSpriteSheetSize": 2048,
+		"loaderStyle": "splash",
+		"preloadSounds": true,
+		"clearBackground": true,
+		"enhancedAccelerationPrecision": true,
+		"cordovaiOSScheme": "app"
+	},
+	"viewportWidth": 854,
+	"viewportHeight": 480,
+	"firstLayout": "Loader"
+}

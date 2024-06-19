@@ -1,0 +1,15 @@
+{
+	"name": "Text_Score_Max",
+	"plugin-id": "Text",
+	"sid": 538643805873682,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Anchor",
+			"sid": 989546801939714
+		}
+	],
+	"effectTypes": []
+}

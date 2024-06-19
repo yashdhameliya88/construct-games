@@ -1,0 +1,281 @@
+{
+	"name": "Chars",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "CHARS",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "CHARS :: FUNCTIONS",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"functionName": "Char_Destroy",
+							"functionDescription": "",
+							"functionCategory": "Char",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "UID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 409298736225505
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"type": "script",
+									"script": "ManipulateInstance.deleteInstance(localVars.UID);"
+								}
+							],
+							"sid": 334949151642089
+						},
+						{
+							"functionName": "Char_Move",
+							"functionDescription": "",
+							"functionCategory": "Char",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "UID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 417698199864974
+								},
+								{
+									"name": "Direction",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 774278195601844
+								},
+								{
+									"name": "Pixels",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 706187464713842
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"type": "script",
+									"script": "ManipulateInstance.moveInstanceToDirection(localVars.UID, {direction: localVars.Direction, distance: localVars.Pixels});"
+								}
+							],
+							"sid": 791721487989782
+						}
+					],
+					"sid": 613654249380034
+				},
+				{
+					"functionName": "Char_ShakeSmokeAndDestroy",
+					"functionDescription": "",
+					"functionCategory": "Char",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 721610600176161
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Char",
+							"sid": 991205963135639,
+							"parameters": {
+								"unique-id": "UID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "shake",
+							"objectClass": "Center",
+							"sid": 786252862692532,
+							"behaviorType": "ScrollTo",
+							"parameters": {
+								"magnitude": "10",
+								"duration": "0.05",
+								"mode": "constant-magnitude"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Char",
+							"sid": 994421981756804,
+							"parameters": {
+								"object": "Particles",
+								"layer": "Char.LayerName",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 882852012062060,
+							"parameters": {
+								"seconds": "0.05"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 530500428902810
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Char",
+							"sid": 453265067850364
+						}
+					],
+					"sid": 472269273161279
+				},
+				{
+					"functionName": "Char_TweenSizeToDestroy",
+					"functionDescription": "",
+					"functionCategory": "Char",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 997993674940311
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Char",
+							"sid": 597579825415308,
+							"parameters": {
+								"unique-id": "UID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-two-properties",
+							"objectClass": "Char",
+							"sid": 408517905695241,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "size",
+								"end-x": "0",
+								"end-y": "0",
+								"time": "0.2",
+								"ease": "default",
+								"destroy-on-complete": "yes",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						}
+					],
+					"sid": 983836368084736
+				},
+				{
+					"functionName": "Char_LaserHitCharThenDestroyAndAddScore",
+					"functionDescription": "",
+					"functionCategory": "Char",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Origin_UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 101659460059642
+						},
+						{
+							"name": "Target_UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 741236520679546
+						},
+						{
+							"name": "Add_Score",
+							"type": "number",
+							"initialValue": "1",
+							"comment": "",
+							"sid": 347619307582574
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Char",
+							"sid": 432627009841728,
+							"parameters": {
+								"unique-id": "Target_UID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Char",
+							"sid": 462309763833682,
+							"parameters": {
+								"instance-variable": "Hitted",
+								"value": "true"
+							}
+						},
+						{
+							"callFunction": "Laser_Create",
+							"sid": 132166044989119,
+							"parameters": [
+								"\"Laser\"",
+								"Char.LayerName",
+								"Origin_UID",
+								"Target_UID",
+								"12",
+								"0.05"
+							]
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 574389016950602,
+							"parameters": {
+								"variable": "Score",
+								"value": "Add_Score"
+							}
+						}
+					],
+					"sid": 230237377224441
+				}
+			],
+			"sid": 741398737617039
+		}
+	],
+	"sid": 143391589573670
+}

@@ -1,0 +1,327 @@
+{
+	"name": "Keyboard",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Keyboard",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "Keyboard_CreateKey",
+					"functionDescription": "",
+					"functionCategory": "Keyboard",
+					"functionReturnType": "number",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Key",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 989454813076524
+						},
+						{
+							"name": "Layer",
+							"type": "string",
+							"initialValue": "Keyboard_Letter",
+							"comment": "",
+							"sid": 205265926830066
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const key = ManipulateInstance.createInstance(\"Key\");\nconst keyBorder = ManipulateInstance.createInstance(\"Key_Border\");\nconst keyLabel = ManipulateInstance.createInstance(\"Key_Label\");\n\nkey.moveToBottom();\nkey.instVars.Key = localVars.Key;\nkeyLabel.text = localVars.Key;\n\n\nkey.addChild(keyBorder, {transformX: true, transformY: true, transformWidth: true, transformHeight: true, transformAngle: true, transformZElevation: true, destroyWithParent: true});\nkey.addChild(keyLabel, {transformX: true, transformY: true, transformWidth: true, transformHeight: true, transformAngle: true, transformZElevation: true, destroyWithParent: true});\n\n\nconst layer = key.layout.getLayer(localVars.Layer);\nkey.moveToLayer(layer);\nkeyBorder.moveToLayer(layer);\nkeyLabel.moveToLayer(layer);\n\nconst UID = key.uid;\ng_runtime.setReturnValue(UID);\n"
+						}
+					],
+					"sid": 552088047913136
+				},
+				{
+					"functionName": "Keyboard_MoveToPosition",
+					"functionDescription": "",
+					"functionCategory": "Keyboard",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 570917355601859
+						},
+						{
+							"name": "X",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 821955294168038
+						},
+						{
+							"name": "Y",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 590608904473490
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const instance = g_runtime.getInstanceByUid(localVars.UID);\ninstance.x = localVars.X;\ninstance.y = localVars.Y;\n"
+						}
+					],
+					"sid": 526586647336111
+				},
+				{
+					"functionName": "Keyboard_ChangeTemplateFromSelection",
+					"functionDescription": "",
+					"functionCategory": "Keyboard",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 656070131319618,
+							"parameters": {
+								"variable": "Keyboard_Template",
+								"value": "Keyboard_List.SelectedText"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 220461343077595,
+							"parameters": {
+								"variable": "isRunning",
+								"value": "false"
+							}
+						},
+						{
+							"callFunction": "Counter_ResetCounter",
+							"sid": 526584746846913,
+							"parameters": [
+								"5"
+							]
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 864501138751571,
+							"parameters": {
+								"variable": "isCounting",
+								"value": "true"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 577545728029538,
+							"parameters": {
+								"seconds": "1"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 897074050080522
+						},
+						{
+							"id": "restart-layout",
+							"objectClass": "System",
+							"sid": 864429826603333
+						}
+					],
+					"sid": 575737041171136
+				},
+				{
+					"functionName": "Keyboard_ColorKey",
+					"functionDescription": "",
+					"functionCategory": "Keyboard",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "TypedKey",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 651742975480664
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Key",
+							"sid": 718253784536192,
+							"parameters": {
+								"instance-variable": "Key",
+								"comparison": 0,
+								"value": "uppercase(TypedKey)"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "Key",
+							"sid": 157220521545580,
+							"parameters": {
+								"color": "rgbEx255(37, 75, 123)"
+							}
+						}
+					],
+					"sid": 860006417303230,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "Key",
+									"sid": 449185224400264,
+									"parameters": {
+										"child": "Key_Border",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 799059464824621
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "Key",
+									"sid": 390581151875686,
+									"parameters": {
+										"child": "Key_Label",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-font-color",
+									"objectClass": "Key_Label",
+									"sid": 347193741698331,
+									"parameters": {
+										"color": "rgbEx255(220, 220, 220)"
+									}
+								}
+							],
+							"sid": 771413675572425
+						}
+					]
+				},
+				{
+					"functionName": "Keyboard_DecolorKey",
+					"functionDescription": "",
+					"functionCategory": "Keyboard",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "TypedKey",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 555072196750278
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Key",
+							"sid": 280723994276835,
+							"parameters": {
+								"instance-variable": "Key",
+								"comparison": 0,
+								"value": "uppercase(TypedKey)"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "Key",
+							"sid": 360393090284311,
+							"parameters": {
+								"color": "rgbEx255(220, 220, 220)"
+							}
+						}
+					],
+					"sid": 309057325396966,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "Key",
+									"sid": 920755831071402,
+									"parameters": {
+										"child": "Key_Border",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-default-color",
+									"objectClass": "Key_Border",
+									"sid": 797969503433837,
+									"parameters": {
+										"color": "rgbEx255(37, 75, 123)"
+									}
+								}
+							],
+							"sid": 102903540689561
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "Key",
+									"sid": 644691309132816,
+									"parameters": {
+										"child": "Key_Label",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-font-color",
+									"objectClass": "Key_Label",
+									"sid": 245237800646514,
+									"parameters": {
+										"color": "rgbEx255(37, 75, 123)"
+									}
+								}
+							],
+							"sid": 387292307903341
+						}
+					]
+				}
+			],
+			"sid": 641225690415394
+		}
+	],
+	"sid": 656791142830123
+}

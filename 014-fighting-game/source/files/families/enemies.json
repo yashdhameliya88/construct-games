@@ -1,0 +1,58 @@
+{
+	"name": "Enemies",
+	"plugin-id": "Sprite",
+	"sid": 377843804571062,
+	"instanceVariables": [
+		{
+			"name": "Health",
+			"type": "number",
+			"desc": "",
+			"sid": 358682837855760
+		},
+		{
+			"name": "FireTimer",
+			"type": "number",
+			"desc": "",
+			"sid": 569422971365227
+		},
+		{
+			"name": "Direction",
+			"type": "string",
+			"desc": "",
+			"sid": 575727037538981
+		},
+		{
+			"name": "Firing",
+			"type": "boolean",
+			"desc": "",
+			"sid": 466156825721853
+		},
+		{
+			"name": "Jump",
+			"type": "boolean",
+			"desc": "",
+			"sid": 654251036743374
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Platform",
+			"name": "Platform",
+			"sid": 895710270130100
+		},
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 691405461800790
+		},
+		{
+			"behaviorId": "LOS",
+			"name": "LineOfSight",
+			"sid": 913441814627889
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"Enemy"
+	]
+}
